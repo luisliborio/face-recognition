@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+tensorflow
+psycopg2-binary
+numpy
+Pillow
+python-multipart
