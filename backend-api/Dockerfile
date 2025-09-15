@@ -1,5 +1,5 @@
 # Usar uma imagem base do Python
-FROM python:3.9-slim
+FROM lsmliborio/tensorflow:2.17.0.2
 
 # Definir o diretório de trabalho dentro do container
 WORKDIR /app
