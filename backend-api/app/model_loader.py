@@ -1,9 +1,9 @@
-import tensorflow as tf
-import numpy as np
-from PIL import Image
+import tensorflow as tf # type: ignore
+import numpy as np # type: ignore
+from PIL import Image # type: ignore
 import io
 import base64
-import albumentations as A
+import albumentations as A # type: ignore
 from .model_class import *
 
 
