@@ -3,9 +3,9 @@ services:
     image: postgres:13-alpine
     container_name: db_face_recognition
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: face_recognition_db
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -21,7 +21,11 @@ services:
       - ./backend-api/app:/app/app
       - ./backend-api/model.keras:/app/model.keras
     environment:
-      DATABASE_URL: "postgresql://user:password@database/face_recognition_db"
+      - DB_HOST=database
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      
     depends_on:
       - database
     restart: unless-stopped
