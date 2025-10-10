@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento Facial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Face Rec 0.0.3</h1>
+        
+        <!-- Tela Inicial -->
+        <div id="home-screen">
+            <p>Selecione uma opção para começar:</p>
+            <div class="button-group">
+                <button id="start-register-btn" class="btn">Cadastrar Novo Rosto</button>
+                <button id="start-verify-btn" class="btn">Verificar Rosto</button>
+            </div>
+        </div>
+
+        <!-- Tela Principal da Aplicação -->
+        <div id="main-app" class="hidden">
+            <h2 id="app-title"></h2>
+            
+            <div class="video-wrapper">
+                <video id="webcam" autoplay playsinline></video>
+                <!-- Canvas para desenhar o resultado (retângulo verde/vermelho) -->
+                <canvas id="overlay"></canvas>
+            </div>
+            
+            <!-- Canvas invisível para capturar a imagem -->
+            <canvas id="capture-canvas" class="hidden"></canvas>
+
+            <div id="controls">
+                <input type="text" id="name-input" placeholder="Digite seu nome" class="hidden">
+                <button id="capture-btn" class="btn">Capturar Foto</button>
+                <button id="submit-btn" class="btn btn-primary hidden">Concluir Cadastro</button>
+            </div>
+
+            <div id="feedback">
+                <p id="message"></p>
+                <!-- Galeria de fotos para o modo de cadastro -->
+                <div id="photo-gallery"></div>
+            </div>
+
+            <button id="back-btn" class="btn btn-secondary">Voltar ao Início</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

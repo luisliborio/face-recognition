@@ -1,0 +1,53 @@
+services:
+  database:
+    image: postgres:13-alpine
+    container_name: db_face_recognition
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    container_name: adminer_face_recognition
+    ports:
+      - "8081:8080"
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  backend-api:
+    build: ./backend-api
+    container_name: api_face_recognition
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend-api/app:/app/app
+      - ./backend-api/model.keras:/app/model.keras
+    environment:
+      - DB_HOST=database
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_face_recognition
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend-api
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+
+volumes:
+  postgres_data:

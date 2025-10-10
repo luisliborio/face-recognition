@@ -1,0 +1,90 @@
+backend-api/model.keras
+
+# =========================================
+# Python
+# =========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.cache
+.pytest_cache/
+nosetests.xml
+
+# Jupyter notebooks
+.ipynb_checkpoints
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# =========================================
+# Environment & credentials
+# =========================================
+.env
+.env.*
+*.env
+*.secret
+secrets.json
+
+# =========================================
+# Editors / IDEs
+# =========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =========================================
+# OS-generated files
+# =========================================
+.DS_Store
+Thumbs.db
+
+# =========================================
+# Docker
+# =========================================
+# Ignore build artifacts and volumes
+**/docker-data/
+**/tmp/
+**/logs/
+.docker/
+docker-compose.override.yml
+
+# =========================================
+# Node / Frontend (if you have a frontend folder)
+# =========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# =========================================
+# Miscellaneous
+# =========================================
+# VS Code local history
+.history/
+# Python bytecode cache
+**/__pycache__/
