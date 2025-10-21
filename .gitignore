@@ -33,6 +33,7 @@ nosetests.xml
 
 # Jupyter notebooks
 .ipynb_checkpoints
+notebooks/models/
 
 # Logs and temp files
 *.log

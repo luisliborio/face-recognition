@@ -1,56 +1,77 @@
-/* Estilos gerais */
+/* ======= ESTILOS GERAIS ======= */
+
+/* O corpo da página inteira */
 body {
+    /* Define a fonte padrão usada no texto, de acordo com disponibilidade */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Define a cor de fundo da página */
     background-color: #121212;
+
+    /* Define a cor do texto */
     color: #e0e0e0;
+
+    /* Faz o conteúdo ficar centralizado tanto na vertical quanto na horizontal */
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Garante que a altura mínima da página ocupe toda a tela */
     min-height: 100vh;
+
+    /* Remove as margens padrão do navegador */
     margin: 0;
 }
 
+/* Caixa principal que envolve o conteúdo */
 .container {
     background-color: #1e1e1e;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    padding: 2rem; /* Espaçamento interno relativo à raíz*/
+    border-radius: 12px; /* Arredondamento de bordas */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
     text-align: center;
-    width: 90%;
-    max-width: 640px;
+    width: 90%; /* Até 90% da largura da tela */
+    max-width: 640px; /* Mas nunca ultrapassa 640px */
 }
 
+/* Títulos principais e subtítulos */
 h1, h2 {
     color: #ffffff;
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #333; /* Linha abaixo do título */
+    padding-bottom: 0.5rem; /* Espaço entre o texto e a linha */
+    margin-bottom: 1.5rem; /* Espaço depois do título */
 }
 
-/* Botões */
+/* ======= BOTÕES ======= */
+
+/* Estilo base para todos os botões */
 .btn {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
+    background-color: #333; 
+    color: #fff; 
+    border: none; 
+    padding: 12px 24px; /* Espaçamento interno */
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 0.5rem;
-    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* Mostra a "mãozinha" ao passar o mouse */
+    font-size: 1rem; /* Tamanho da fonte relativa à raíz*/
+    margin: 0.5rem; /* Espaço entre botões relativo à raíz*/
+    transition: background-color 0.3s, transform 0.2s; /* Animação */
 }
 
+/* Quando o mouse passa sobre o botão */
 .btn:hover {
-    background-color: #444;
-    transform: translateY(-2px);
+    background-color: #444; /* Fica um pouco mais claro */
+    transform: translateY(-2px); /* Sobe um pouco */
 }
 
+/* Botão principal */
 .btn-primary {
     background-color: #007bff;
 }
 .btn-primary:hover {
     background-color: #0056b3;
 }
+
+/* Botão secundário */
 .btn-secondary {
     background-color: #6c757d;
 }
@@ -58,45 +79,54 @@ h1, h2 {
     background-color: #5a6268;
 }
 
+/* Agrupa os botões lado a lado */
 .button-group {
-    display: flex;
+    display: flex; /* Botões em linha, flexível */
     justify-content: center;
-    gap: 1rem;
+    gap: 1rem; /* Espaçamento relativo à raíz */
 }
 
-/* Webcam e Overlays */
+
+/* ======= WEBCAM E OVERLAYS ======= */
+
+/* Área que contém o vídeo da webcam */
 .video-wrapper {
-    position: relative;
+    position: relative; /* Necessário para posicionar o canvas sobre o vídeo */
     width: 100%;
     margin: 1rem auto;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; /* Esconde partes que saem da área */
     background-color: #000;
 }
 
+/* O vídeo da webcam */
 #webcam {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    height: auto; /* Mantém a proporção original */
+    display: block; /* Evita espaçamentos indesejados */
 }
 
+/* O canvas transparente que fica sobre o vídeo (para desenhar bboxes) */
 #overlay {
-    position: absolute;
+    position: absolute; /* Fica "em cima" do vídeo */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
 
-/* Controles e Feedback */
+/* ======= CONTROLES E FEEDBACK ======= */
+
+/* Área com os botões e campo de entrada */
 #controls {
     margin-top: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Coloca os elementos em coluna */
     align-items: center;
     gap: 1rem;
 }
 
+/* Campo de texto para digitar o nome */
 #name-input {
     padding: 10px;
     border-radius: 8px;
@@ -107,35 +137,41 @@ h1, h2 {
     max-width: 300px;
 }
 
+/* Área de mensagens e fotos */
 #feedback {
     margin-top: 1rem;
-    min-height: 24px;
+    min-height: 24px; /* Garante que a área tenha um tamanho mínimo */
 }
 
+/* Mensagem de sucesso (texto verde) */
 #message {
     font-weight: bold;
-    color: #00e676; /* Verde para sucesso */
+    color: #00e676; /* Verde vibrante */
 }
 
-/* Galeria de fotos */
+/* ======= GALERIA DE FOTOS ======= */
+
+/* Mostra as miniaturas das fotos capturadas */
 #photo-gallery {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Quebra linha se faltar espaço */
     justify-content: center;
     gap: 10px;
     margin-top: 1rem;
 }
 
+/* Cada miniatura de foto (adicionada no .js!) */
 .thumbnail {
     width: 80px;
     height: 80px;
     border-radius: 8px;
     border: 2px solid #007bff;
-    object-fit: cover;
+    object-fit: cover; /* A imagem se ajusta ao tamanho sem distorcer */
 }
 
-/* Classes utilitárias */
+/* ======= CLASSES UTILITÁRIAS ======= */
+
+/* Classe usada para esconder elementos */
 .hidden {
-    display: none !important;
+    display: none !important; /* O "!important" garante que nada sobrescreva isso */
 }
-

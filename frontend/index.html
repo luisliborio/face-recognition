@@ -1,54 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html> <!-- Define que o documento segue o padrão HTML5 -->
+<html lang="pt-br"> <!-- Início do documento HTML, idioma definido como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reconhecimento Facial</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"> <!-- Define o padrão de caracteres (permite acentos, cedilha etc.) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a exibição em dispositivos móveis -->
+    <title>Reconhecimento Facial</title> <!-- Título que aparece na aba do navegador -->
+    <link rel="stylesheet" href="style.css"> <!-- Importa o arquivo de estilos CSS -->
 </head>
-<body>
-    <div class="container">
-        <h1>Face Rec 0.0.1</h1>
-        
+
+<body> <!-- Início do corpo da página (tudo que aparece na tela) -->
+    <div class="container"> <!-- Contêiner principal que agrupa todo o conteúdo -->
+        <h1>Face Rec 0.0.1</h1> <!-- Título principal da página -->
+
         <!-- Tela Inicial -->
-        <div id="home-screen">
-            <p>Selecione uma opção para começar:</p>
-            <div class="button-group">
-                <button id="start-register-btn" class="btn">Cadastrar Novo Rosto</button>
-                <button id="start-verify-btn" class="btn">Verificar Rosto</button>
+        <div id="home-screen"> <!-- Seção de início com as opções principais -->
+            <p>Selecione a operação desejada:</p>
+            <div class="button-group"> <!-- Agrupamento de botões -->
+                <button id="start-register-btn" class="btn">Cadastrar Novo Rosto</button> <!-- Botão para iniciar o cadastro -->
+                <button id="start-verify-btn" class="btn">Verificar Rosto</button> <!-- Botão para iniciar a verificação -->
             </div>
         </div>
 
         <!-- Tela Principal da Aplicação -->
-        <div id="main-app" class="hidden">
-            <h2 id="app-title"></h2>
+        <div id="main-app" class="hidden"> <!-- Seção principal do app (fica escondida até ser ativada) -->
+            <h2 id="app-title"></h2> <!-- Título dinâmico (muda conforme o modo: cadastro ou verificação) -->
             
-            <div class="video-wrapper">
-                <video id="webcam" autoplay playsinline></video>
-                <!-- Canvas para desenhar o resultado (retângulo verde/vermelho) -->
+            <div class="video-wrapper"> <!-- Área onde a câmera e o overlay serão exibidos -->
+                <video id="webcam" autoplay playsinline></video> <!-- Exibe a imagem da webcam -->
+                <!-- Canvas para desenhar o resultado (ex: retângulo verde/vermelho ao redor do rosto) -->
                 <canvas id="overlay"></canvas>
             </div>
             
-            <!-- Canvas invisível para capturar a imagem -->
+            <!-- Canvas invisível usado para capturar a imagem da webcam -->
             <canvas id="capture-canvas" class="hidden"></canvas>
 
-            <div id="controls">
-                <input type="text" id="name-input" placeholder="Digite seu nome" class="hidden">
-                <button id="capture-btn" class="btn">Capturar Foto</button>
-                <button id="submit-btn" class="btn btn-primary hidden">Concluir Cadastro</button>
+            <div id="controls"> <!-- Área de controles do usuário -->
+                <input type="text" id="name-input" placeholder="Digite seu nome" class="hidden"> <!-- Campo para digitar o nome no modo cadastro -->
+                <button id="capture-btn" class="btn">Capturar Foto</button> <!-- Botão que tira a foto -->
+                <button id="submit-btn" class="btn btn-primary hidden">Concluir Cadastro</button> <!-- Botão que envia as fotos (aparece depois) -->
             </div>
 
-            <div id="feedback">
-                <p id="message"></p>
-                <!-- Galeria de fotos para o modo de cadastro -->
+            <div id="feedback"> <!-- Área de mensagens e fotos -->
+                <p id="message"></p> <!-- Onde o JavaScript escreve mensagens para o usuário -->
+                <!-- Galeria de fotos tiradas durante o cadastro -->
                 <div id="photo-gallery"></div>
             </div>
 
-            <button id="back-btn" class="btn btn-secondary">Voltar ao Início</button>
+            <button id="back-btn" class="btn btn-secondary">Voltar ao Início</button> <!-- Botão para voltar à tela inicial -->
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Importa o arquivo JavaScript que controla o comportamento da página -->
 </body>
 </html>
-
