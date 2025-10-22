@@ -14,7 +14,7 @@ from .model_loader import load_keras_model, preprocess_image, augment
 
 # --- Configurações e Constantes ---
 EMBEDDING_DIM = 512
-VERIFICATION_THRESHOLD = 0.0002 # TODO: faltando calibração
+VERIFICATION_THRESHOLD = -0.00075 # TODO: faltando calibração
 
 # --- Inicialização da Aplicação FastAPI ---
 app = FastAPI(title="API de Reconhecimento Facial")
@@ -191,17 +191,20 @@ def verify_user(request: VerifyRequest):
 
     # Calcula as distâncias
     db_embeddings = np.array([[user[f'embedding_{i}'] for i in range(EMBEDDING_DIM)] for user in users])
-    distances = np.mean((db_embeddings - query_embedding) ** 2, axis=1)
+    distances = -np.mean((db_embeddings - query_embedding) ** 2, axis=1)
     
-    min_distance_idx = np.argmin(distances)
-    min_distance = distances[min_distance_idx]
+    max_distance_idx = np.argmax(distances)
+    max_distance = distances[max_distance_idx]
     
-    if min_distance < VERIFICATION_THRESHOLD:
-        identified_user = users[min_distance_idx]
+    if max_distance >= VERIFICATION_THRESHOLD:
+        identified_user = users[max_distance_idx]
         return {
             "identified": True,
             "name": identified_user['name'],
-            "distance": float(min_distance)
+            "distance": float(max_distance)
         }
     else:
-        return {"identified": False}
+        return {
+            "identified": False,
+            "distance": float(max_distance)
+        }

@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message.style.color = '#00e676';
                 drawResultBox(true);
             } else {
-                message.textContent = 'Usuário não identificado.';
+                message.textContent = `Usuário não identificado. (Max D: ${result.distance.toFixed(6)})`;
                 message.style.color = '#ff4d4d';
                 drawResultBox(false);
             }
