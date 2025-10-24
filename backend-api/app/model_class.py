@@ -143,19 +143,6 @@ class FaceModel(K.Model):
 # ----------------------------
 # Build model
 # ----------------------------
-backbone = K.applications.EfficientNetB0(
-    include_top=False,    
-    weights='imagenet',
-    input_shape=(224, 224, 3)
-)
-feature_extractor = build_feature_extractor((224, 224, 3), backbone, dim=512)
-model = FaceModel(feature_extractor, dim=512, margin=0.2)
-model.compile(optimizer=K.optimizers.Adam(1e-3))
-
-
-# ----------------------------
-# Build model
-# ----------------------------
 # backbone = K.applications.EfficientNetB0(
 #     include_top=False,    
 #     weights='imagenet',

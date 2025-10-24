@@ -64,7 +64,7 @@ def preprocess_image(base64_string: str) -> np.ndarray:
 transform = A.Compose([
     A.RandomOrder([
         A.HorizontalFlip(p=0.5),
-        A.Affine(scale=(0.85, 1.1), translate_percent=(-0.1, 0.1), rotate=(-15, 15), shear=(-5, 5), border_mode=1, p=0.8),
+        A.Affine(scale=(0.9, 1.1), translate_percent=(-0.1, 0.1), rotate=(-15, 15), shear=(-5, 5), border_mode=1, p=0.7),
         A.RGBShift((-10, 10), (-10, 10), (-10, 10)),
         A.RandomBrightnessContrast(brightness_limit=(-0.1, 0.1), contrast_limit=(-0.1, 0.1), p=0.75),
         A.OpticalDistortion(distort_limit=(-0.1, 0.1), p=0.75),

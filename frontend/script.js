@@ -229,11 +229,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(resetApp, 3000); // volta à tela inicial após 3 segundos
         } else { // verify
             if (result.identified) {
-                message.textContent = `Identificado: ${result.name} (Distância: ${result.distance.toFixed(6)})`;
+                message.textContent = `Identificado: ${result.name} (Distância: ${result.distance.toFixed(3)})`;
                 message.style.color = '#00e676';
                 drawResultBox(true);
             } else {
-                message.textContent = `Usuário não identificado. (Max D: ${result.distance.toFixed(6)})`;
+                message.textContent = `Usuário não identificado. (Max D: ${result.distance.toFixed(3)})`;
                 message.style.color = '#ff4d4d';
                 drawResultBox(false);
             }
