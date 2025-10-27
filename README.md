@@ -10,7 +10,7 @@ Projeto de reconhecimento facial com few-shot learning e softmargin triplet loss
 
 
 # Comandos:
-- docker compose up -d --build // subir aplicação pela primeira vez a partir do código fonte e docker-compose.yml
-- docker compose up -d         // subir aplicação pela segunda vez em diante, ou diretamente a partir das imagens no docker hub
-- docker compose down          // derrubar a aplicação
-- docker compose down -v       // derrubar a aplicação e base de dados
+- docker compose up -d --build --// subir aplicação pela primeira vez a partir do código fonte e docker-compose.yml
+- docker compose up -d ----------// subir aplicação pela segunda vez em diante, ou diretamente a partir das imagens no docker hub
+- docker compose down -----------// derrubar a aplicação
+- docker compose down -v --------// derrubar a aplicação e base de dados
