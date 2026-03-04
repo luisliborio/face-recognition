@@ -19,7 +19,7 @@ EMBEDDING_DIM = 512
 # Observação didática: esse valor depende MUITO do modelo, dos dados e de como a
 # similaridade/distância é calculada. Em produção você deve calibrar isso com
 # um conjunto de validação (avaliando FPR/FNR).
-VERIFICATION_THRESHOLD = -0.55 # NOTE: calibração direta do coeficient J durante treino
+VERIFICATION_THRESHOLD = -0.2 # NOTE: calibração direta do coeficient J durante treino
 
 # --- Inicialização da Aplicação FastAPI ---
 # FastAPI cria automaticamente documentação interativa (Swagger) e gerencia rotas.
@@ -230,7 +230,7 @@ def verify_user(request: VerifyRequest):
     db_embeddings = np.array([[user[f'embedding_{i}'] for i in range(EMBEDDING_DIM)] for user in users])
     # Aqui a "distância" usada é -sum((db - query)^2)
     # Ou seja, é o negativo da soma dos quadrados (mais próximo => valor maior, menos negativo).
-    distances = -np.sum((db_embeddings - query_embedding) ** 2, axis=1)
+    distances = -np.sum((db_embeddings - query_embedding) ** 2, axis=1) # (N, 512) - (512,) -> (N, 512) -> (N,)
     
     # Seleciona o usuário com maior "similaridade" (maior distância negada).
     max_distance_idx = np.argmax(distances)

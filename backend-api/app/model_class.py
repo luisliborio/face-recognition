@@ -63,9 +63,7 @@ class FaceModel(K.Model):
         soft_loss = tf.math.log1p(tf.exp(diff)) # (batch,)
         loss = soft_loss
 
-        # manter apenas as distâncias moderadas
-        # loss = tf.boolean_mask(soft_loss, mask) # (batch,)
-        return tf.reduce_mean(loss) # em caso de mask ser all False TODO: VERIFICAR MÉDIA COM MASK 
+        return tf.reduce_mean(loss) 
 
     def train_step(self, data):
         with K.backend.name_scope('train'):                    
