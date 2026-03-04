@@ -28,7 +28,7 @@ Projeto de reconhecimento facial com few-shot learning e softmargin triplet loss
         - POSTGRES_DB=facedb
         - POSTGRES_USER=admin
         - POSTGRES_PASSWORD=senha_super_segura
-2. copiar docker-compose(dockerhub).yml (no .zip ou github)
+2. copiar docker-compose(dockerhub).yml (no github)
     - renomear para docker-compose.yml
 3. Executar o compose no terminal (dentro da pasta do projeto!)
     - docker compose up -d
