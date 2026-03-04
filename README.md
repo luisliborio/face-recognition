@@ -53,6 +53,6 @@ Projeto de reconhecimento facial com few-shot learning e softmargin triplet loss
 - docker compose up -d           # subir aplicação pela segunda vez em diante, ou diretamente a partir das imagens no docker hub
 - docker compose down            # derrubar a aplicação
 - docker compose down -v         # derrubar a aplicação e base de dados
-- tag NOME-DA-IMAGEM-ATUAL:TAG_ATUAL NOME-DA-IMAGEM-NOVA:TAG_NOVA # modificar nome de uma imagem:tag
+- docker tag NOME-DA-IMAGEM-ATUAL:TAG_ATUAL NOME-DA-IMAGEM-NOVA:TAG_NOVA # modificar nome de uma imagem:tag
 - docker login
 - docker push SEU-DOCKERHUB/SUA-IMAGE:TAG # upload para seu repositório remoto
